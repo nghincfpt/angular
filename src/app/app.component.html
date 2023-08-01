@@ -1,0 +1,184 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Search
+      </button>
+    </form>
+  </div>
+</nav>
+<div class="container">
+  <article>
+    <section class="container">
+      <div class="shadow-lg p-3 mb-5 bg-body rounded">
+        <form id="registrationForm">
+          <div class="d-flex">
+            <div class="col-5">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >UserName <span style="color: red">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="userName"
+                  [(ngModel)]="student.userName"
+                  name="userName"
+                />
+                <span id="userNameError" class="error-message"></span>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Password <span style="color: red">*</span></label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="passWord"
+                  [(ngModel)]="student.password"
+                  name="password
+                 "
+                />
+                <span id="passWordError" class="error-message"></span>
+              </div>
+            </div>
+
+            <div class="col-1"></div>
+
+            <div class="col-5">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >FullName <span style="color: red">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="fullName"
+                  name="fullName"
+                  [(ngModel)]="student.fullName"
+                  required
+                />
+                <span id="fullNameError" class="error-message"></span>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >age <span style="color: red">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="age"
+                  name="age"
+                  [(ngModel)]="student.age"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="col-11">
+              <div class="mb-3">
+                <label for="address" class="form-label"
+                  >Address <span style="color: red">*</span></label
+                >
+                <br />
+                <textarea
+                  id="address"
+                  name="address"
+                  class="form-control"
+                  rows="4"
+                  cols="70"
+                  [(ngModel)]="student.address"
+                  name="address"
+                ></textarea>
+                <span id="addressError" class="error-message"></span>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="add()">
+            Register
+          </button>
+          <button type="submit" class="btn btn-danger">Cancel</button>
+        </form>
+      </div>
+    </section>
+  </article>
+  <section class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">UserName</th>
+          <th scope="col">FullName</th>
+          <th scope="col">Password</th>
+          <th scope="col">Age</th>
+          <th scope="col">Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- dùng *ngFor để lập qua các phần tử và gián vào product  -->
+        <tr *ngFor="let product of products; let i = index">
+          <td>{{ product.userName }}</td>
+          <td>{{ product.fullName }}</td>
+          <td>{{ product.password }}</td>
+          <td>{{ product.age }}</td>
+          <td>{{ product.address }}</td>
+          <td><a class="btn btn-info" (click)="edit(i)">Sữa</a></td>
+          <td><a class="btn btn-info" (click)="delete(i)">Xóa</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+<script src="./common/valid.ts"></script>
